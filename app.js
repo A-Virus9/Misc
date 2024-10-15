@@ -11,18 +11,18 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
-const compression = require("compression")
+const compression = require('compression');
 
 const app = express();
 
-app.use(express.static("public"));
+app.use(express.static('public'));
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(helmet());
 
-if (process.env.NODE_ENV === 'developement') app.use(morgan('dev'));
+app.use(morgan('dev'));
 
 const limiter = rateLimit({
   max: 100,
@@ -46,10 +46,10 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  res.status(200).render('base',{
-    tour: "The forest hiker",
-    user: "Akshat",
-    yo: 8
+  res.status(200).render('base', {
+    tour: 'The forest hiker',
+    user: 'Akshat',
+    yo: 8,
   });
 });
 
