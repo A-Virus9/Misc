@@ -11,7 +11,6 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
-const compression = require('compression');
 
 const app = express();
 
@@ -52,8 +51,6 @@ app.get('/', (req, res) => {
     yo: 8,
   });
 });
-
-// app.use(compression);
 
 app.use('/questions', questionRouter);
 app.use('/user', userRouter);
