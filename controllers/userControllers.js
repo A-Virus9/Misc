@@ -19,6 +19,7 @@ const sharp = require('sharp');
 //   },
 // });
 
+
 const multerStorage = multer.memoryStorage();
 
 const multerFilter = (req, file, cb) => {
@@ -82,6 +83,7 @@ const filterObj = (obj, ...allowedFields) => {
 };
 
 exports.createUser = catchAsync(async (req, res) => {
+  console.log(req);
   req.body.passwordChangedAt = parseInt(Date.now());
   const newUser = await User.create(req.body);
 
@@ -99,7 +101,7 @@ exports.createUser = catchAsync(async (req, res) => {
     email: req.body.email,
     subject: 'Welcome',
     message: 'Welcome sir!',
-    html: "welcome"
+    html: 'welcome',
   });
 
   res.status(201).json({
@@ -305,10 +307,16 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     return next(createError('Password data not accepted', 400));
   }
 
-  const filteredBody = filterObj(req.body, 'name', 'email', 'imageMain', 'images');
+  const filteredBody = filterObj(
+    req.body,
+    'name',
+    'email',
+    'imageMain',
+    'images'
+  );
   // if (req.files) filteredBody.imageMain = req.body.imageMain;
 
-  console.log(filteredBody)
+  console.log(filteredBody);
 
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
     new: true,

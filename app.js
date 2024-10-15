@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
   });
 });
 
-app.use(compression);
+// app.use(compression);
 
 app.use('/questions', questionRouter);
 app.use('/user', userRouter);
