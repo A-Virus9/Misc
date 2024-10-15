@@ -1,0 +1,31 @@
+[
+  {
+    "question": "Who was the first prime minister of america?",
+    "options": [
+      "Abraham Lincoln",
+      "George Washingon",
+      "Donald J.Thump",
+      "Barack Obama"
+    ],
+    "correct": 2,
+    "id": 1
+  },
+  {
+    "question": "When did india get Independence?",
+    "options": [1963, 1921, 1947, 1932],
+    "correct": 3,
+    "id": 2
+  },
+  {
+    "question": "When was i born?",
+    "options": [2004, 1999, 1007, 2005],
+    "correct": 1,
+    "id": 3
+  },
+  {
+    "question": "How as this project",
+    "options": ["Easy", "Medium", "Hard", "Very Hard!"],
+    "correct": 3,
+    "id": 4
+  }
+]
